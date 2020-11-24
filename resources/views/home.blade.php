@@ -1,53 +1,14 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}"/>
-    <title>Document</title>
-    
-
-</head>
-<body>
-<!-- Header -->
-<div class="overlay-navigation">
-  <nav role="navigation">
-    <ul>
-      <li><a href="#" data-content="The beginning">Home</a></li>
-      <li><a href="#" data-content="Curious?">About</a></li>
-      <li><a href="#" data-content="I got game">Skills</a></li>
-      <li><a href="#" data-content="Only the finest">Works</a></li>
-      <li><a href="#" data-content="Don't hesitate">Contact</a></li>
-    </ul>
-  </nav>
-</div>
-
-<section class="home">
-  
-  <div class="open-overlay">
-    <span class="bar-top"></span>
-    <span class="bar-middle"></span>
-    <span class="bar-bottom"></span>
-  </div>
-  <header class="w3-display-container w3-margin-top w3-content w3-wide" style="max-width:1500px;" id="home">
-
-  <img class="w3-image" src="/img/bg1.jpg" alt="Architecture" width="1500" height="800">
-  <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span> <span class="w3-hide-small w3-text-light-grey">Architects</span></h1>
-  </div>
-</header>
-</section>
-    <!-- Page content -->
+<!-- Head -->
+@extends('includes\layout')
+<!-- Navbar -->
+@extends('includes\navigation')
+<!-- Page Content -->
+@section('content')
 <div class="w3-content w3-padding" style="max-width:1564px">
 
 <!-- Project Section -->
 <div class="w3-container w3-padding-32" id="projects">
-  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h3>
 </div>
 
 <div class="w3-row-padding">
@@ -115,30 +76,23 @@
 
 <div class="w3-row-padding w3-grayscale">
   <div class="w3-col l3 m6 w3-margin-bottom">
-    <img src="/img/product_frame.png" alt="John" style="width:100%">
-    <h3>John Doe</h3>
-    <p class="w3-opacity">CEO & Founder</p>
+    <img src="/img/pp1.jpg" alt="Wilco" style="width:100%">
+    <h3>Wilco Hansen</h3>
+    <p class="w3-opacity">Developer</p>
     <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
     <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
   </div>
   <div class="w3-col l3 m6 w3-margin-bottom">
-    <img src="/img/product_frame.png" alt="Jane" style="width:100%">
-    <h3>Jane Doe</h3>
-    <p class="w3-opacity">Architect</p>
+    <img src="/img/pp2.jpg" alt="Theus" style="width:100%">
+    <h3>Theus de Zeeuw</h3>
+    <p class="w3-opacity">Developer</p>
     <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
     <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
   </div>
   <div class="w3-col l3 m6 w3-margin-bottom">
-    <img src="/img/product_frame.png" alt="Mike" style="width:100%">
-    <h3>Mike Ross</h3>
-    <p class="w3-opacity">Architect</p>
-    <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-    <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-  </div>
-  <div class="w3-col l3 m6 w3-margin-bottom">
-    <img src="/img/product_frame.png" alt="Dan" style="width:100%">
-    <h3>Dan Star</h3>
-    <p class="w3-opacity">Architect</p>
+    <img src="/img/pp3.jpg" alt="Tony" style="width:100%">
+    <h3>Tony Elia Mokhtar</h3>
+    <p class="w3-opacity">Developer</p>
     <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
     <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
   </div>
@@ -166,13 +120,6 @@
 
 <!-- End page content -->
 </div>
-
-
+@stop
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-<p>Made by Tony </p>
-</footer>
-<script src="{{ URL::asset('js/nav.js')}}"></script>
-</body>
-
-</html>
+@extends('includes\footer')
