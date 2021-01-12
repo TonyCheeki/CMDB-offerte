@@ -45,24 +45,21 @@
     <div class="w3-row-padding w3-grayscale">
         <div class="w3-col l3 m6 w3-margin-bottom">
             <img src="{{asset('img/pp1.jpg')}}" alt="John" style="width:100%">
-            <h3>John Doe</h3>
-            <p class="w3-opacity">CEO & Founder</p>
+            <h3>Wilco Hansen</h3>
+            <p class="w3-opacity">Developer</p>
             <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
         </div>
         <div class="w3-col l3 m6 w3-margin-bottom">
             <img src="{{asset('img/pp2.jpg')}}" alt="Jane" style="width:100%">
-            <h3>Jane Doe</h3>
-            <p class="w3-opacity">Architect</p>
+            <h3>Theus de Zeeuw</h3>
+            <p class="w3-opacity">Developer</p>
             <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
         </div>
         <div class="w3-col l3 m6 w3-margin-bottom">
             <img src="{{asset('img/pp3.jpg')}}" alt="Mike" style="width:100%">
-            <h3>Mike Ross</h3>
-            <p class="w3-opacity">Architect</p>
+            <h3>Tony Elia Mokhtar</h3>
+            <p class="w3-opacity">Developer</p>
             <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
         </div>
     </div>
 

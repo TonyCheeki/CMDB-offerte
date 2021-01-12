@@ -1,43 +1,30 @@
 <?php
-
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// products/home/page routs //
 Route::get('/', [PageController::class, 'index'])->name('home');
-Route::get('/page/index', [PageController::class, 'indexPage'])->name('page.index');
 Route::resource('products', ProductController::class);
+Route::get('/page/index', [PageController::class, 'indexPage'])->name('page.index');
 Route::get('/page/edit/{id}', [PageController::class, 'edit'])->name('page.edit');
 Route::post('/update/{id}', [PageController::class, 'update'])->name('update');
 
-
-
+// Jetstreamrouts //
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
-
-// order routes //
-Route::middleware(['auth:sanctum', 'verified'])->get('/account/orders', function () {
-    return Inertia\Inertia::render('Orders');
-})->name('orders');
-
 
 Route::get('/logout', function () {
     Auth::logout();
     return view('home');
 });
+
+// order routes //
+Route::middleware(['auth:sanctum', 'verified'])->get('/account/orders', function () {
+    return Inertia\Inertia::render('Orders');
+})->name('orders');
 
 // shoping cart routes //
 Route::get('/add-to-cart/{id}', [ProductController::class, 'getAddToCart'])->name('addToCart');
@@ -47,6 +34,7 @@ Route::get('/increase/{id}', [ProductController::class, 'getIncreaseByOne'])->na
 Route::get('/remove/{id}', [ProductController::class, 'getRemoveItem'])->name('remove');
 Route::get('/shopping-cart', function(){return view('shopping-cart');})->name('shopping-cart');
 
+// mail server rout//
 Route::get('/send-mail', function () {   
     $mailDetails = [
         'Name' => $_GET['Name'],
