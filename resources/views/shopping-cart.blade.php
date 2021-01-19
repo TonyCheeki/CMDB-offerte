@@ -13,7 +13,7 @@
                     <img src="{{$product['item']->img_url}}" class=" float-left img-responsive " style="margin:2px; max-height:50px; max-width:50px; "  alt="productfoto">
                     </div>
                     <strong class="float-left">{{$product['item']->name}}</strong>
-                    <div style="float: right; class="btn-group">
+                    <div style="float: right" class="btn-group">
                         <span class="label label-success">Prijs:€{{$product['price']}}</span>
                         <button class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
                         <ul class="dropdown-menu">
@@ -33,9 +33,10 @@
                 </div>
             </div>
             <hr>
+
             <div class="row">
                 <div class="col-12">
-                <a href=" " style="float: right;" type="button" class="btn btn-success">Checkout</a>
+                    <a href="{{ route('checkout') }}" type="button" class="btn btn-succes"><strong style="border: 1px solid black;padding: 5px; border-radius: 5px">Checkout</strong></a>
                 </div>
             </div>
         @else

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Session;
 
 class Cart extends Model
 {
@@ -13,13 +14,16 @@ class Cart extends Model
     public $totalQty = 0 ;
     public $totalPrice = 0 ;
 
-    public function __construct($oldCart)
+
+    public function __construct()
     {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
         if($oldCart){
             $this->items = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
-            $this->totalPrice = $oldCart->totalPrice;  
-        } 
+            $this->totalPrice = $oldCart->totalPrice;
+        }
     }
 
     public function add($item, $id){
@@ -31,7 +35,7 @@ class Cart extends Model
         }
         $storedItem['qty']++;
         $storedItem['price'] = $item->price * $storedItem['qty'];
-        
+
         $this->items[$id] = $storedItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;

@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class PageController extends Controller
@@ -22,6 +23,7 @@ class PageController extends Controller
         $products = product::limit(4)->get();
         return view('home', ['products' => $products, 'pages' => $pages]);
     }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -119,5 +121,14 @@ class PageController extends Controller
     {   
         $pages = page::all();
         return view('page.index', compact('pages'));
+    }
+
+    public function indexlogout()
+    {
+        Auth::logout();
+
+        $pages = page::all();
+        $products = product::limit(4)->get();
+        return view('home', ['products' => $products, 'pages' => $pages]);
     }
 }

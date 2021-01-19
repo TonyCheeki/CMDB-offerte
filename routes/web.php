@@ -16,24 +16,27 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/logout', function () {
-    Auth::logout();
-    return view('home');
-});
-
 // order routes //
 Route::middleware(['auth:sanctum', 'verified'])->get('/account/orders', function () {
     return Inertia\Inertia::render('Orders');
 })->name('orders');
 
+
+Route::get('/logout', [PageController::class, 'indexlogout'])->name('logout');
+
+// order routes //
+Route::middleware(['auth:sanctum', 'verified'])->get('/account/orders', function () {
+    return Inertia\Inertia::render('Orders');
+})->name('orders');
 // shoping cart routes //
 Route::get('/add-to-cart/{id}', [ProductController::class, 'getAddToCart'])->name('addToCart');
-Route::get('/shoping-cart', [ProductController::class, 'getCart'])->name('shoppingCart');
+Route::get('/shopping-cart', [ProductController::class, 'getCart'])->name('shoppingCart');
 Route::get('/reduce/{id}', [ProductController::class, 'getReduceByOne'])->name('reduce');
 Route::get('/increase/{id}', [ProductController::class, 'getIncreaseByOne'])->name('increase');
 Route::get('/remove/{id}', [ProductController::class, 'getRemoveItem'])->name('remove');
-Route::get('/shopping-cart', function(){return view('shopping-cart');})->name('shopping-cart');
-
+//Route::get('/shopping-cart', function(){return view('shopping-cart');})->name('shopping-cart');
+Route::get('/shopping-cart/getCheckout', [OrderController::class, 'getCheckout'])->name('checkout');
+Route::post('/shopping-cart/postCheckout', [OrderController::class, 'postCheckout'])->name('postCheckout');
 // mail server rout//
 Route::get('/send-mail', function () {   
     $mailDetails = [
