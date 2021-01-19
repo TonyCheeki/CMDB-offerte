@@ -6,10 +6,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 // products/home/page routs //
 Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/products/list', [ProductController::class, 'productList'])->name('products.list');
 Route::resource('products', ProductController::class);
 Route::get('/page/index', [PageController::class, 'indexPage'])->name('page.index');
 Route::get('/page/edit/{id}', [PageController::class, 'edit'])->name('page.edit');
 Route::post('/update/{id}', [PageController::class, 'update'])->name('update');
+
 
 // Jetstreamrouts //
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

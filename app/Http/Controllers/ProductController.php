@@ -23,6 +23,14 @@ class ProductController extends Controller
         return View::make('products.index')->with('products', $products);
     }
 
+    public function productList(){
+    
+        // get all the products
+        $products = product::all();
+        // load the view and pass the products
+        return View('products.list')->with('products', $products);
+    
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -66,7 +74,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        
+    
     }
 
     /**
@@ -142,9 +151,7 @@ class ProductController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
-
         $request->session()->put('cart', $cart);
-
         return redirect()->back();
     }
 }
