@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{URL::asset('../css/productscards.css')}}"> 
     <link rel="stylesheet" href="{{URL::asset('../css/productshow.css')}}">
     <link rel="stylesheet" href="{{URL::asset('../css/shoppingcart.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('../css/mobileversion.css')}}">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
