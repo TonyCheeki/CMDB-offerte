@@ -39,7 +39,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'zip' => $input['zip'],
                 'street' => $input['street'],
                 'city' => $input['city'],
-                'role' => $input['user_role'],
             ])->save();
         }
     }
