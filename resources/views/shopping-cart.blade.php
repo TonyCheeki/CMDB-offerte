@@ -1,14 +1,14 @@
 @extends('includes/layout')
 <title>Shoppingcart</title>
 @section('content')
-<div class="container" style="display: flex;">
+<div class="container shoppingcart-container">
     @if(Session::has('cart'))
-    <div class="row" style="width: 900px;">
+    <div class="row shoppingcart-row" style="">
         <div class="col-sm-12 col-md-12">
             <ul class="list-group">
                 @foreach($products as $product)
                 <div class="d-sm-flex justify-content-between my-4 pb-4 border-bottom">
-                    <div class="media d-block d-sm-flex text-center text-sm-left">
+                    <div class="media d-block d-sm-flex text-center text-sm-left shoppingcart-text-center">
                         <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img src="{{asset('img/product_frame.png')}}" alt="Product"></a>
                         <div class="media-body pt-3">
                             <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">{{$product['item']->name}}</a></h3>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-xl-3 col-md-4 pt-3 pt-md-0 sidebar">
-                <h2 class="h6 px-4 py-3 bg-secondary text-center">Total</h2>
+                <h2 class="h6 px-4 py-3 bg-success text-center">Total</h2>
                 <div class="h3 font-weight-semibold text-center py-3">€{{$totalPrice}}</div>
                 <hr>
                 <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Note</span>Additional

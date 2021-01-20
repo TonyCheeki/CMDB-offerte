@@ -27,13 +27,16 @@ class OrderController extends Controller
 
 
 
-    public function getCheckout(){
-    if (!Session::has('cart')) {
-    return view('cart.index');
-    }
-    $cart = new Cart();
-    $total = $cart->totalPrice;
-    return view('cart-show', ['total' => $total]);
+   public function getCheckout(){
+       if (!Session::has('cart')) {
+           return view('cart.index');
+       }
+       if ( !Auth::user()) {
+        return redirect()->back()->with('message', 'Please login or register an account to continue the purchase');
+       }
+       $cart = new Cart();
+       $total = $cart->totalPrice;
+       return view('cart-show', ['total' => $total]);
 }
 
     public function postCheckout(Request $request)
