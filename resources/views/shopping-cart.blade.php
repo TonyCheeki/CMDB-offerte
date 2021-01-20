@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="col-xl-3 col-md-4 pt-3 pt-md-0 sidebar">
-                <h2 class="h6 px-4 py-3 bg-secondary text-center">Total</h2>
+                <h2 class="h6 px-4 py-3 bg-success text-center">Total</h2>
                 <div class="h3 font-weight-semibold text-center py-3">€{{$totalPrice}}</div>
                 <hr>
                 <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Note</span>Additional
