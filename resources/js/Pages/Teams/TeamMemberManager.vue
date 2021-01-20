@@ -2,7 +2,8 @@
     <div>
         <!-- <div>{{ userPermissions }}</div>
         <div>{{ $page.user.all_teams[1].membership.role }}</div> -->
-        <div v-if="$page.user.all_teams[1].membership.role === 'admin'">
+        <!-- {{ $page.user.all_teams[0].id }} -->
+        <div v-if="$page.user.role == 'admin'">
             <jet-section-border />
 
             <!-- Add Team Member -->

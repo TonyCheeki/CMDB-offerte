@@ -128,6 +128,7 @@
                     zip: this.user.zip,
                     street: this.user.street,
                     city: this.user.city,
+                    user_role: this.user.user_role,
                     photo: null,
                 }, {
                     bag: 'updateProfileInformation',

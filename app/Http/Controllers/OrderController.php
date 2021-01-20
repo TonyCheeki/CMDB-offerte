@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -20,28 +25,33 @@ class OrderController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+
+   public function getCheckout(){
+       if (!Session::has('cart')) {
+           return view('cart.index');
+       }
+       $cart = new Cart();
+       $total = $cart->totalPrice;
+       return view('cart-show', ['total' => $total]);
+}
+
+    public function postCheckout(Request $request)
     {
-        $this->validate($request, [
-           'product_id'=>'required',
-            'user_id'=>'required',
-            'total_price'=>'required'
-        ]);
+        if (!Session::has('cart')) {
+            return redirect()->route('cart.index');
+        }
+        $cart = new Cart();
 
         $order = new Order();
-        $order->product_id = $request->product_id;
-        $order->user_id = $request->user_id;
-        $order->total_price = $request->total_price;
+        $order->cart = serialize($cart);
+        $order->address = $request->input('address');
+        $order->name = $request->input('firstName');
 
-        $order->save();
+        Auth::user()->orders()->save($order);
 
-        return response('successfully Created Order', 201);
+        Session::forget('cart');
+        return redirect()->route('home')->with('success', 'Successfully purchased products!');
     }
 
     /**
@@ -93,4 +103,5 @@ class OrderController extends Controller
         Order::find($id)->delete();
         return response('successfully Deleted your Order', 200);
     }
+
 }

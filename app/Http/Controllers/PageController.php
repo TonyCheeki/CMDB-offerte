@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Product;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class PageController extends Controller
 {
@@ -15,10 +18,12 @@ class PageController extends Controller
      * @return Factory|\Illuminate\Contracts\View\View
      */
     public function index()
-    {
-        return View('home');
+    {   
+        $pages = page::all();
+        $products = product::limit(4)->get();
+        return view('home', ['products' => $products, 'pages' => $pages]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -57,9 +62,14 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Page $page, $id)
     {
-        //
+        //// get the page
+        $page = page::find($id);
+
+        // show the edit form and pass the pagedata
+        return View('page.edit')
+            ->with('page', $page);
     }
 
     /**
@@ -69,10 +79,32 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update( Request $request, $id)
     {
         //
+        $rules = array(
+            'name' => 'required',
+            'description' => 'required',
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->action('PageController@edit', ['id' => $page->id])
+                        ->withErrors($validator)
+                        ->withInput();
+        } else {
+            $page = page::find($id);
+            $page->name       = $request->input('name');
+            $page->description      = $request->input('description');
+            $page->save();
+        }
+        // Session::flash('message', 'section updated Successfully !');
+        return View('page.edit')
+            ->with('page', $page);
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -83,5 +115,20 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         //
+    }
+
+    public function indexPage()
+    {   
+        $pages = page::all();
+        return view('page.index', compact('pages'));
+    }
+
+    public function indexlogout()
+    {
+        Auth::logout();
+
+        $pages = page::all();
+        $products = product::limit(4)->get();
+        return view('home', ['products' => $products, 'pages' => $pages]);
     }
 }

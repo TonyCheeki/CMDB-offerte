@@ -18,6 +18,8 @@ class AddUserDetailsToUserTable extends Migration
             $table->string('zip')->nullable();
             $table->string('street')->nullable();
             $table->string('city')->nullable();
+
+            $table->string('role')->nullable();
         });
     }
 
