@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use View;
 use App\Models\Product;
+use App\Models\File;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Session;
+
+
 
 class ProductController extends Controller
 {
@@ -60,8 +63,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
         // show the view and pass the product to it
+        
+        foreach($product->files as $file){
+
+            $file->thumbnail=str_replace('"', '' , $file->thumbnail);
+            $file->thumbnail=explode(' ,', $file->thumbnail);
+        }
+
+
         return View::make('products.show')
             ->with('product', $product);
     }
@@ -72,9 +82,14 @@ class ProductController extends Controller
      * @param Product $product
      * @return void
      */
-    public function edit(Product $product)
+    public function edit(Product $product, $id)
     {
-        
+        //// get the page
+        $product = product::find($id);
+
+        // show the edit form and pass the pagedata
+        return View('products/edit')
+            ->with('product', $product);
     
     }
 
@@ -154,4 +169,32 @@ class ProductController extends Controller
         $request->session()->put('cart', $cart);
         return redirect()->back();
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+                'thumbnail' => 'required',
+                'thumbnail.*' => 'image'
+        ]);
+        $files = [];
+        if($request->hasfile('thumbnail'))
+        {
+            foreach($request->file('thumbnail') as $file)
+            {
+                $name = time().rand(1,100).'.'.$file->extension();
+                $file->move(public_path('files'), $name);  
+                $files[] = $name;  
+            }
+        }
+        $file= new Product();
+        $file->filenames = $files;
+        $file->save();
+        return back()->with('success', 'Data Your files has been successfully added');
+    }
+    
 }

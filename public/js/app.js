@@ -45191,13 +45191,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! E:\Xampp\htdocs\Sites\CMDB-offerte\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! E:\Xampp\htdocs\Sites\CMDB-offerte\resources\css\app.css */"./resources/css/app.css");
-=======
-__webpack_require__(/*! C:\xampp\htdocs\jaar3\EpicIT\Theusprome\CMDB-offerte\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\jaar3\EpicIT\Theusprome\CMDB-offerte\resources\css\app.css */"./resources/css/app.css");
->>>>>>> d35d8a017f8110ddbbfb1468a3144979e43952e4
 
 
 /***/ })

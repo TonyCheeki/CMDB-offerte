@@ -13,10 +13,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">description</th>
-                                <th scope="col">img-1</th>
-                                <th scope="col">img-2</th>
-                                <th scope="col">img-3</th>
-                                <th scope="col">img-4</th>
                                 <th scope="col">Created_at</th>
                                 <th scope="col">Updated_at</th>
                                 <th scope="col">Edit content</th>
@@ -25,14 +21,12 @@
                             <tbody>
                             @foreach($products as $product)
                                 <tr id="">
-                                    
                                         <td scope="row">{{$product->id}}</td>
                                         <td>{{$product->name}}</td>
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->created_at}}</td>
                                         <td>{{$product->updated_at}}</td>
-                                        <td class="float-center"><a href=""> <span class="far fa-edit float-right" style="margin:5px;"></span></a></td>
-                                    
+                                        <td class="float-center"><a href="{{route('product.edit',['id' => $product->id])}}"> <span class="far fa-edit float-right" style="margin:5px;"></span></a></td>
                                 </tr>
                                 @endforeach           
                             </tbody>
