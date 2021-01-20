@@ -180,7 +180,7 @@
 <div class="container mt-5">
 <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About Us</h3>
 </div>
-<div class="container bootstrap snippets bootdey" style="display: flex;">
+<div class="container bootstrap snippets bootdey">
     <div class="col-sm-4">
         <!-- Begin user profile -->
         <div class="box-info text-center user-profile-2">

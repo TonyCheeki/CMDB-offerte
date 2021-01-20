@@ -85,14 +85,13 @@
                 </div>
                 <div class="ml-12">
                     <div class="mt-2 text-sm text-gray-500">
-                        edite and insert poroducts this is feature for the
-                        future.
+                        you can edit products 
                     </div>
-                    <a href="#">
+                    <a :href="route('products.list')">
                         <div
                             class="mt-3 flex items-center text-sm font-semibold text-indigo-700"
                         >
-                            <div>simply dummy text</div>
+                            <div>Edit Products page</div>
                             <div class="ml-1 text-indigo-500">
                                 <svg
                                     viewBox="0 0 20 20"
