@@ -24,6 +24,4 @@
 <button type="submit" class="btn btn-primary btn-lg btn-block">update section</button>
 </form>
 </div>
-
-
 @stop
