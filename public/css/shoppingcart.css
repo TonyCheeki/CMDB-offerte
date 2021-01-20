@@ -1,3 +1,11 @@
+.shoppingcart-container {
+    display: flex;
+}
+
+.shoppingcart-row {
+    width: 900px;
+}
+
 .cart-item-thumb {
     display: block;
     width: 10rem
