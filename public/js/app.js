@@ -2829,7 +2829,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -25436,11 +25435,11 @@ var render = function() {
                 _c("div", { staticClass: "ml-12" }, [
                   _c("div", { staticClass: "mt-2 text-sm text-gray-500" }, [
                     _vm._v(
-                      "\n                    edite and insert poroducts this is feature for the\n                    future.\n                "
+                      "\n                    you can edit products \n                "
                     )
                   ]),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: "#" } }, [
+                  _c("a", { attrs: { href: _vm.route("products.list") } }, [
                     _c(
                       "div",
                       {
@@ -25448,7 +25447,7 @@ var render = function() {
                           "mt-3 flex items-center text-sm font-semibold text-indigo-700"
                       },
                       [
-                        _c("div", [_vm._v("simply dummy text")]),
+                        _c("div", [_vm._v("Edit Products page")]),
                         _vm._v(" "),
                         _c("div", { staticClass: "ml-1 text-indigo-500" }, [
                           _c(
