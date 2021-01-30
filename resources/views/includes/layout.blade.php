@@ -27,7 +27,7 @@
 <body>
 <nav class="navbar navbar-dark navbar-expand-lg navbar-color">
     <div class="container">
-        <span class="navbar-brand mb-0 h1">EpicIT / dev</span>
+        <span class="navbar-brand mb-0 h1"><img src="{{asset('img/logo-epic-white.svg')}}" alt=""></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
