@@ -31,7 +31,7 @@
     <div class="hdtuto control-group lst input-group" style="margin-top:10px">
         <input type="file" name="thumbnail[]" class="myfrm form-control">
         <div class="input-group-btn"> 
-        <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+        <!-- <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button> -->
         </div>
     </div>
     </div>
